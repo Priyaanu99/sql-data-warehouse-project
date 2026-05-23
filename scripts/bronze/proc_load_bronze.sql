@@ -114,6 +114,28 @@ BEGIN
 
 	INSERT INTO public.etl_log(batch_id, layer, procedure_name, log_level, message)
     VALUES (p_batch_id, 'BRONZE', 'load_bronze', 'INFO', 'Bronze load completed');
+
+EXCEPTION
+    WHEN OTHERS THEN
+
+        RAISE NOTICE 'Error occurred';
+
+        INSERT INTO public.etl_log(
+            batch_id,
+            layer,
+            procedure_name,
+            log_level,
+            message
+        )
+        VALUES (
+            p_batch_id,
+            'BRONZE',
+            'load_bronze',
+            'ERROR',
+            SQLERRM
+        );
+
+        RAISE;
 END
 $$
 
