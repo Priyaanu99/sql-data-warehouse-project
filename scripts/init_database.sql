@@ -1,11 +1,12 @@
 /*
 =========================================================
-Create Database and Schemas
+Create Database, Schemas and ETL Metadata Tables
 =========================================================
 Script Purpose:
   This script creates a new database named 'DataWarehouse' after checking if it already exists. 
-  If the database exists, it is dropped and recreated. Additionally, the script sets up three
-  schemas within the database: 'bronze', 'silver', 'gold'.
+  If the database exists, it is dropped and recreated and sets up three
+  schemas within the database: 'bronze', 'silver', 'gold'. Additionally, it creates an 
+  etl_log table under public schema to store ETL execution logs and messages.
 
 WARNING:
   Running this script will drop the entire 'DataWarehouse' database if it exists.
@@ -23,5 +24,16 @@ CREATE DATABASE "DataWarehouse";
 CREATE SCHEMA bronze;
 CREATE SCHEMA silver;
 CREATE SCHEMA gold;
+
+--Create etl_log Table
+CREATE TABLE IF NOT EXISTS public.etl_log (
+    log_id SERIAL PRIMARY KEY,
+    batch_id INT,
+    layer TEXT,
+    procedure_name TEXT,
+    log_level TEXT,
+    message TEXT,
+    log_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 
