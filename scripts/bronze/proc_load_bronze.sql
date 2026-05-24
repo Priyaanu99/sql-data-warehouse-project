@@ -118,8 +118,6 @@ BEGIN
 EXCEPTION
     WHEN OTHERS THEN
 
-        RAISE NOTICE 'Error occurred';
-
         INSERT INTO public.etl_log(
             batch_id,
             layer,
@@ -135,7 +133,7 @@ EXCEPTION
             SQLERRM
         );
 
-        RAISE;
+        RAISE NOTICE 'Error occurred';
 END
 $$
 
