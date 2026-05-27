@@ -133,7 +133,7 @@ EXCEPTION
             SQLERRM
         );
 
-        RAISE NOTICE 'Error occurred';
+        RAISE NOTICE 'Error occurred while loading bronze layer';
 END
 $$
 
