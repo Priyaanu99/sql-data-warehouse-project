@@ -1,6 +1,6 @@
 /*
 =========================================================================================
-Stored Procedure: Load Bronze Layer (Source -> Bronze)
+Stored Procedure: Load Bronze Tables (Source -> Bronze)
 ==========================================================================================
 Script Purpose:
   This stored procedure loads data into the 'bronze' schema from external CSV files.
@@ -21,7 +21,7 @@ ETL Logging:
 Parameters:
     p_batch_id
     -Batch identifier associated with the current ETL execution.
-    -This stored procedure accepts just one parameter p_batch_id nut does not return any values.
+    -This stored procedure accepts just one parameter p_batch_id and does not return any values.
 
 Usage Example:
   CALL bronze.load_bronze(101);
