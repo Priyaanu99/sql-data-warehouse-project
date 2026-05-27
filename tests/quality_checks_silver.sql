@@ -1,3 +1,22 @@
+/*
+===============================================================================
+Quality Checks
+===============================================================================
+Script Purpose:
+    This script performs various quality checks for data consistency, accuracy, 
+    and standardization across the 'silver' layer. It includes checks for:
+    - Null or duplicate primary keys.
+    - Unwanted spaces in string fields.
+    - Data standardization and consistency.
+    - Invalid date ranges and orders.
+    - Data consistency between related fields.
+
+Usage Notes:
+    - Run these checks after data loading Silver Layer.
+    - Investigate and resolve any discrepancies found during the checks.
+===============================================================================
+*/
+
 -- =======================================================================
 -- Checking 'silver.crm_cust_info'
 -- =======================================================================
@@ -168,7 +187,7 @@ FROM silver.erp_cust_az12;
 -- ====================================================================
 -- Data Standardization & Consistency
 SELECT DISTINCT cntry
-FROM bronze.erp_loc_a101
+FROM silver.erp_loc_a101
 ORDER BY cntry;
 
 -- ====================================================================
@@ -177,7 +196,7 @@ ORDER BY cntry;
 -- Check for Unwanted Spaces and NULL values in Primary Key
 -- Expectation: No Results
 SELECT id 
-FROM bronze.erp_px_cat_g1v2
+FROM silver.erp_px_cat_g1v2
 WHERE id IS NULL 
    OR id != TRIM(id);
 
@@ -191,13 +210,13 @@ WHERE cat != TRIM(cat)
 
 -- Data Standardization & Consistency
 SELECT DISTINCT cat 
-FROM bronze.erp_px_cat_g1v2;
+FROM silver.erp_px_cat_g1v2;
 
 SELECT DISTINCT subcat 
-FROM bronze.erp_px_cat_g1v2;
+FROM silver.erp_px_cat_g1v2;
 
 SELECT DISTINCT maintenance 
-FROM bronze.erp_px_cat_g1v2;
+FROM silver.erp_px_cat_g1v2;
 
 
 
