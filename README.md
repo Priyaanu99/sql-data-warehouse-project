@@ -4,7 +4,7 @@ Welcome to the **Data Warehouse and Analytics Project** repository 🚀
 
 This project demonstrates a complete end-to-end **Data Warehousing and Analytics solution** built using **PostgreSQL**. The project follows modern **data engineering best practices** including Medallion Architecture, ETL pipeline development, data modeling, and analytical reporting.
 
-> This project was inspired by the **Data Warehouse and Analytics Project** tutorial by **Data With Baraa** on YouTube.
+> This project was inspired by the **Data Warehouse and Analytics Project** tutorial by **@DataWithBaraa** on YouTube.
 > The original project was implemented using SQL Server, while this version was independently recreated using PostgreSQL and pgAdmin.
 
 ---
@@ -176,7 +176,7 @@ DataWarehouse/
 
 # 🙌 Acknowledgement
 
-Special thanks to **Data With Baraa** for the original SQL Server-based tutorial and project inspiration.
+Special thanks to **@DataWithBaraa** for the original SQL Server-based tutorial and project inspiration.
 
 This repository represents an independent PostgreSQL implementation created for learning and portfolio purposes.
 
