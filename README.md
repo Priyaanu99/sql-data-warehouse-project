@@ -13,6 +13,8 @@ This project demonstrates a complete end-to-end **Data Warehousing and Analytics
 
 This project follows the **Medallion Architecture** approach using three layers:
 
+![Image description](docs/high_level_architecture.drawio.png)
+
 ## 🥉 Bronze Layer
 
 * Stores raw source data ingested from CSV files
